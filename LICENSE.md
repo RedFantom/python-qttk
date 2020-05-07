@@ -1,5 +1,4 @@
-LICENSE ("MIT-style")
-
+# MIT License
 This software is Copyright (C) 2004 Georgios Petasis and other parties.
 
 The following terms apply to all files associated with this software
