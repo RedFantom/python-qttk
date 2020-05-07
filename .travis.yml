@@ -11,9 +11,7 @@ addons:
       - tcl8.6-dev
       - tk8.6-dev
       - tcl
-
-before_script:
-  - ./configure --with-tcl=/usr/lib/tcl8.6 --with-tk=/usr/lib/tk8.6 --with-qt-inc=/usr/include/qt4 --with-qt-lib=/usr/lib/x86_64-linux-gnu
 script:
+  - cmake .
   - make
   - sudo make install
