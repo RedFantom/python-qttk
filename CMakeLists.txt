@@ -3,7 +3,7 @@ CMAKE_MINIMUM_REQUIRED ( VERSION 2.6 )
 ## ===========================================================================
 ##  Project Information
 ## ===========================================================================
-PROJECT ( tileqt )
+PROJECT ( qttk )
 ## Package version information.
 SET ( PKG_NAME          ${PROJECT_NAME} )
 SET ( PKG_MAJOR_VERSION 0 )
@@ -136,8 +136,7 @@ IF ( QT4_FOUND )
 ENDIF ( QT4_FOUND )
 
 FIND_PACKAGE ( X11 )
-
-SET ( PKG_TARGET_LIB_NAME ${PKG_NAME}${PKG_VERSION} )
+SET ( PKG_TARGET_LIB_NAME ${PKG_NAME} )
 ## ===========================================================================
 ##  Target: tileqt shared library
 ## ===========================================================================
@@ -157,17 +156,13 @@ ELSE ( LOAD_QT_DYNAMICALLY )
     # TARGET_LINK_LIBRARIES ( ${PKG_TARGET_LIB_NAME} ${X11_Xscreensaver_LIB} )
 ENDIF ( LOAD_QT_DYNAMICALLY )
 
-FILE ( WRITE library/pkgIndex.tcl
+FILE ( WRITE qttk/pkgIndex.tcl
         "package ifneeded ttk::theme::tileqt ${PKG_VERSION} \\
-  [list load [file join $dir lib${PKG_NAME}${PKG_VERSION}[info sharedlibextension]] tileqt]" )
+  [list load [file join $dir lib${PKG_NAME}[info sharedlibextension]] tileqt]" )
 
 INSTALL ( TARGETS ${PKG_TARGET_LIB_NAME}
         RUNTIME DESTINATION ${PKG_TARGET_LIB_NAME}
         LIBRARY DESTINATION ${PKG_TARGET_LIB_NAME}
         ARCHIVE DESTINATION ${PKG_TARGET_LIB_NAME} )
-INSTALL ( FILES library/pkgIndex.tcl library/tileqt.tcl
+INSTALL ( FILES qttk/pkgIndex.tcl qttk/tileqt.tcl
         DESTINATION ${PKG_TARGET_LIB_NAME} )
-
-ENABLE_TESTING ( )
-ADD_TEST ( demo   ${TK_WISH} ${PROJECT_SOURCE_DIR}/demos/demo.tcl )
-ADD_TEST ( styles ${TK_WISH} ${PROJECT_SOURCE_DIR}/demos/WidgetStates.tcl )
