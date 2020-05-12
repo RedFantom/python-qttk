@@ -11,7 +11,9 @@ addons:
       - tcl8.6-dev
       - tk8.6-dev
       - tcl
+      - python3-pip
+      - cmake
+install:
+  - sudo -H python3 -m pip install scikit-build
 script:
-  - cmake .
-  - make
-  - sudo make install
+  - sudo python3 setup.py install
