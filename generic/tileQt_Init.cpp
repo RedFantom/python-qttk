@@ -33,10 +33,9 @@ extern void TileQt_DestroyQApp(void);
 
 static char initScript[] =
     "namespace eval tileqt { };"
-    "namespace eval ttk::theme::tileqt { variable version "
-                                                   PACKAGE_VERSION " };"
-    "source [file join $::tileqtdir tileqt.tcl];"
-    "unset ::tileqtdir;";
+    "namespace eval ttk::theme::tileqt { variable version " PACKAGE_VERSION " };"
+    "source tileqt.tcl;";
+
 
 /*
  * Exit Handler.
