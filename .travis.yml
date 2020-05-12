@@ -18,6 +18,7 @@ install:
   - sudo -H python3 -m pip install scikit-build nose
 script:
   - sudo python3 setup.py bdist install
+  - python3 -m nose
 deploy:
   provider: releases
   api_key:

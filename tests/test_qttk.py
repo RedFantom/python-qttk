@@ -3,11 +3,14 @@ Author: RedFantom
 License: GNU GPLv3
 Copyright (c) 2020 RedFantom
 """
+import os
+import sys
+if "qttk" in os.listdir(os.getcwd()):
+    sys.path = sys.path[2:]
+import qttk
 import tkinter as tk
 from tkinter import ttk
-import qttk
 from unittest import TestCase
-import sys
 
 
 def printf(string, end="\n"):
