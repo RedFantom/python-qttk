@@ -17,7 +17,8 @@ addons:
 install:
   - sudo -H python3 -m pip install scikit-build nose
 script:
-  - sudo python3 setup.py bdist install
+  - sudo python3 setup.py bdist
+  - sudo python3 setup.py install
   - sudo rm -rf qttk
   - python3 -m nose
 deploy:
